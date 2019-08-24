@@ -1,0 +1,14 @@
+
+#a {
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+    
+}
+#b {
+    width: 100px;
+    height: 100px;
+    padding: 25px;
+    border: 2px solid blue;
+    
+}
