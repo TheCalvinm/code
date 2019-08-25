@@ -144,6 +144,11 @@ h3, h2 {
   overflow: auto;
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 .work:nth-child(even) {
   margin-right: 40px;
 }
