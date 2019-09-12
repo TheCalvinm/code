@@ -7,11 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id='box'>
+
+    </div>
     <script>
-        function great {
+       
+        const names = ["bruce lee", "arnold schwarzenegger", "will smith", "esther", "marie curie", "joan of arc"]
+        
+
+        for (let i = 0; i < names.length; i++) {
+            let header = document.createElement('h1')
+
+            header.textContent = names[i]
             
+            document.getElementById('box').append(header)
         }
+
+
+
     </script>
 </body>
 </html>
