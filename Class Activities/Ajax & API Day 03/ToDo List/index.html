@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>To Do List App</h1>
+  <form>
+    <label for="item">item</label>
+    <input type="text" name="item" id="item">
+    <button id="addItem">Add Item</button>
+  </form>
+  <ul id="items"></ul>
+  <script>
+    let items = []
+
+    const addItem = _ => {
+      items.push({
+        text: document.getElementById('item').value,
+        isDone: false
+      })
+      renderItems()
+    }
+    const renderItems = _ => {
+      document.getElementById('items').innerHTML = ''
+      items.forEach((item, i) => {
+        let itemElem = document.createElement('li')
+        itemElem.innerHTML = `
+          <span style="text-decoration: ${item.isDone ? 'line-through' : 'none'}">${item.text}</span>
+
+          <button data-id="${i}" class="toggle">✓</button>
+        `
+        document.getElementById('items').append(itemElem)
+      })
+    }
+    const updateItem = id => {
+      items[id].isDone = !items[id].isDone
+      renderItems()
+    }  
+
+    document.addEventListener('click', event => event.target.className === 'toggle' ? updateItem(event.target.dataset.id) : null)
+    document.getElementById('addItem').addEventListener('click', event => {
+      event.preventDefault()
+      addItem()
+    })
+  </script>
+</body>
+
+</html>
